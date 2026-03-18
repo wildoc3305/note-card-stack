@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Note Card Stack</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="overlay" id="overlay"></div>
+
+  <div class="form-container" id="formContainer">
+    <div class="form-header">
+      <h2 id="formTitle">New Note</h2>
+      <button class="closeForm" id="closeForm" aria-label="Close"><i class="ri-close-line"></i></button>
+    </div>
+    <form id="noteForm">
+      <div class="input-group">
+        <label>Profile Image URL</label>
+        <input type="text" id="imageUrlInput" placeholder="https://example.com/photo.jpg" />
+      </div>
+      <div class="input-group">
+        <label>Full Name</label>
+        <input type="text" id="fullNameInput" placeholder="Enter full name" />
+      </div>
+      <div class="input-group">
+        <label>Phone Number</label>
+        <input type="text" id="phoneInput" placeholder="+91 98765 43210" />
+      </div>
+      <div class="input-group">
+        <label>Home Town</label>
+        <input type="text" id="homeTownInput" placeholder="Enter home town" />
+      </div>
+      <div class="input-group">
+        <label>Purpose</label>
+        <input type="text" id="purposeInput" placeholder="e.g., Quick appointment note" />
+      </div>
+      <div class="input-group">
+        <label>Category</label>
+        <div class="tag-group">
+          <label class="tag-option"><input type="radio" name="category" value="emergency" /><span>🚨 Emergency</span></label>
+          <label class="tag-option"><input type="radio" name="category" value="important" /><span>⭐ Important</span></label>
+          <label class="tag-option"><input type="radio" name="category" value="urgent"    /><span>⚡ Urgent</span></label>
+          <label class="tag-option"><input type="radio" name="category" value="no-rush"   /><span>🌿 No Rush</span></label>
+        </div>
+      </div>
+      <input type="hidden" id="editIndex" value="-1" />
+      <button type="submit" class="submit-btn" id="submitBtn">Create Note</button>
+    </form>
+  </div>
+
+  <div class="note-container">
+    <div class="left-icons">
+      <button id="add-note"  title="Add new note">   <i class="ri-add-line"></i>        </button>
+      <button id="upBtn"     title="Previous card">  <i class="ri-arrow-up-line"></i>   </button>
+      <button id="downBtn"   title="Next card">      <i class="ri-arrow-down-line"></i> </button>
+      <button id="deleteBtn" title="Delete top card"><i class="ri-delete-bin-line"></i> </button>
+    </div>
+    <div class="stack" id="stack"></div>
+    <div class="right-colors">
+      <span class="dot black"  data-color="black"  title="Dark"></span>
+      <span class="dot purple" data-color="purple" title="Purple"></span>
+      <span class="dot orange" data-color="orange" title="Orange"></span>
+      <span class="dot teal"   data-color="teal"   title="Teal"></span>
+    </div>
+  </div>
+
+  <div class="card-counter" id="cardCounter"></div>
+  <div class="swipe-hint" id="swipeHint"><i class="ri-drag-move-line"></i> Swipe left or right</div>
+
+  <script src="proj.js"></script>
+</body>
+</html>
